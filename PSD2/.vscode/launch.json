@@ -5,12 +5,12 @@
             "name": "C++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/mnt/c/Users/Stephanie/Desktop/Projetos/PSD2/bin/main",
+            "program": "/mnt/c/Users/Stephanie/Desktop/Projetos/Codigos/codigos/PSD2/bin/main",
             "args": [
                 "-fThreading"
             ],
             "stopAtEntry": false,
-            "cwd": "/mnt/c/Users/Stephanie/Desktop/Projetos/PSD2/",
+            "cwd": "/mnt/c/Users/Stephanie/Desktop/Projetos/Codigos/codigos/PSD2/",
             "environment": [],
             "externalConsole": true,
             "windows": {

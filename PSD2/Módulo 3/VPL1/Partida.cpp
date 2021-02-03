@@ -3,7 +3,8 @@
 
 
 Partida::Partida(int num_jogadores){
-
+    
+    
 }
 
 Partida::~Partida(){
@@ -11,7 +12,14 @@ Partida::~Partida(){
 }
 
 void Partida::addJogadorCarta(string nomeJogador, int numero_pontos_carta, string naipe){
+    if(_jogadores[i]._nomeJogador == NULL){
+        for(i = 0; i < num_jogadores; i++){
+            this->_jogadores[i].Jogador();
 
+        }  
+    }
+
+    
 }
 	
 int Partida::getNumJogadores(){
