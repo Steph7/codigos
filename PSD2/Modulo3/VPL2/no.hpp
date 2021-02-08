@@ -12,14 +12,13 @@ class No {
 	int _prioridade;
   public:
     No(int prioridade, int dado, No* proximo);
-    
+
 	/** Seta o próximo nó.
      */
     void setProximo(No *next);
     /** Retorna o próximo nó.
      */
-    No* getProximo();
-	
+    No* getProximo();	
 	/** Retorna o dado armazenado no nó. 
        @retorna um inteiro.
      */
@@ -27,7 +26,6 @@ class No {
 	/** Seta o valor do dado que será armazenado no nó. 
      */
 	void setDado(int dado);
-	
 	/** Retorna o valor da prioridade do nó. 
      */
 	int getPrioridade();

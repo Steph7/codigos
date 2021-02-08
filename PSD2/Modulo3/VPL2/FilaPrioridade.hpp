@@ -3,10 +3,15 @@
 
 #include <iostream>
 #include "No.hpp"
+#include <queue>
 
 using namespace std;
 
 class FilaPrioridade {
+  private:
+    No* cabeca; // primerio elemento
+    No* cauda; // último elemento
+
   public:
     FilaPrioridade();
 
@@ -23,7 +28,7 @@ class FilaPrioridade {
     /** Esse método indica se a lista está vazia.
        @retorna verdadeiro se a lista está vazia, e falso caso contrário.
      */
-    int estaVazio();
+    bool estaVazio();
     /** Informa o número de elementos da lista.
        @retorna um inteiro n, onde n é o número de nós da lista.
      */
