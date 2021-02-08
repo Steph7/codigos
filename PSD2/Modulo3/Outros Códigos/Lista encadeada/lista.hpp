@@ -10,31 +10,30 @@
 using namespace std;
 
 //Classe LISTA
-template<class T>
 
 class Lista{
     private:
-        No<T>* cabeca;
-        No<T>* cauda;
+        No* cabeca;
+        No* cauda;
     
     public:
         Lista();
 
-        Lista(T v);
+        Lista(int v);
 
-        virtual ~Lista();
+        ~Lista();
 
         void mostrar();
 
         bool vazia();
 
-        void inserir_inicio(T v);
+        void inserir_inicio(int v);
 
-        void inserir_final(T v);
+        void inserir_final(int v);
 
         int tamanho();
 
-        bool existe(T v);
+        bool existe(int v);
 
         void remover();
 

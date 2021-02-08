@@ -1,14 +1,15 @@
 #include <iostream>
 #include "lista.hpp"
+#include "no.hpp"
 
 int main() {
 
-    Lista<string> l;
+    Lista l;
 
-    l.inserir_final("python");
-    l.inserir_final("c++");
-    l.inserir_final("ruby");
-    l.inserir_inicio("haskell");
+    l.inserir_final(10);
+    l.inserir_final(20);
+    l.inserir_final(30);
+    l.inserir_inicio(40);
 
     l.mostrar();
 

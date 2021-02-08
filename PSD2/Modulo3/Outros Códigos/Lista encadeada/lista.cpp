@@ -3,24 +3,26 @@
 #include <iostream>
 #include "lista.hpp"
 
+using namespace std;
+
 Lista::Lista(){
     this->cabeca = NULL;
     this->cauda = NULL;
 }
 
-Lista::Lista(T v){
-    this->cabeca = new No<T>(v);
+Lista::Lista(int v){
+    this->cabeca = new No(v);
     this->cauda = cabeca; //só tem um elemento
 }
 
-virtual Lista::~Lista(){
+Lista::~Lista(){
     delete cabeca;
+    delete cauda;
 }
 
 void Lista::mostrar(){
-    template<class T>
     cout << "Imprimindo todos os elementos: \n";
-    No<T>* c = cabeca;
+    No* c = cabeca;
     if(vazia()){
         cout << "A lista não possui elementos \n";
     }
@@ -37,15 +39,15 @@ bool Lista::vazia(){
     return(cabeca == NULL);
 }
 
-void Lista::inserir_inicio(T v){
-    No<T>* novo_no = new No<T>(v);
+void Lista::inserir_inicio(int v){
+    No* novo_no = new No(v);
 
     novo_no->setProx(cabeca);
     cabeca = novo_no;
 }
 
-void Lista::inserir_final(T v){
-    No<T>* novo_no = new No<T>(v);
+void Lista::inserir_final(int v){
+    No* novo_no = new No(v);
     if(vazia()){
         cabeca = novo_no;
         cauda = novo_no;
@@ -61,7 +63,7 @@ int Lista::tamanho(){
         return 0;
     }
 
-    No<T>* c = cabeca;
+    No* c = cabeca;
     int tam = 0;
     do{
         c = c->obterProx();
@@ -70,8 +72,8 @@ int Lista::tamanho(){
     return tam;
 }
 
-bool Lista::existe(T v){
-    No<T>* c = cabeca;
+bool Lista::existe(int v){
+    No* c = cabeca;
     while(c){
         if(c->obterValor() == v){
             return true;
@@ -93,12 +95,12 @@ void Lista::remover(){
         }
         // +2 elementos
         else{
-            No<T>* ant_ant = cabeca;
-            No<T>* ant = cabeca->obterProx();
-            No<T>* corrente = cabeca->obterProx()->obterProx();
+            No* ant_ant = cabeca;
+            No* ant = cabeca->obterProx();
+            No* corrente = cabeca->obterProx()->obterProx();
 
             while(corrente){
-                No<T>* aux = ant;
+                No* aux = ant;
                 ant = corrente;
                 ant_ant = aux;
                 corrente = corrente->obterProx();

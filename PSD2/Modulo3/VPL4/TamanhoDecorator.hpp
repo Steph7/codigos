@@ -15,7 +15,7 @@ public:
    * e seta _tamanho do objeto
    * \param o objeto que deve ser decorado.
    */
-  TamanhoDecorator(AbstractForma* formaObj, int tamanho): FormaDecorator(formaObj), _tamanho(tamanho) {}
+  TamanhoDecorator(AbstractForma* formaObj, int tamanho): FormaDecorator(formaObj), _tamanho(tamanho) {};
   
 
   /**

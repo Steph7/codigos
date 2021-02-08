@@ -1,17 +1,18 @@
 #include <iostream>
 #include "no.hpp"
 
+using namespace std;
 
-No::No(T v){
+No::No(int v){
     this->v = v;
     this->prox = NULL;
 }
 
-T No::obterValor(){
+int No::obterValor(){
     return v;
 }
 
-No::obterProx(){
+No* No::obterProx(){
     return prox;
 }
 

@@ -2,21 +2,20 @@
 #define _NO_H_
 
 #include <iostream>
+#include "no.hpp"
 
 using namespace std;
-
-template<class T> 
 
 // Classe NÓ
 class No{
     private:
-        T v;
+        int v;
         No* prox;
 
     public:
-        No(T v);
+        No(int v);
 
-        T obterValor();
+        int obterValor();
 
         No* obterProx();
 

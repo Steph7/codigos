@@ -14,7 +14,7 @@ public:
    * para o decorador de base.
    * \param o objeto que deve ser decorado.
    */
-  OpacidadeDecorator(AbstractForma* formaObj, double opacidade): FormaDecorator(formaObj), _opacidade(opacidade){}
+  OpacidadeDecorator(AbstractForma* formaObj, double opacidade): FormaDecorator(formaObj), _opacidade(opacidade){};
   
 
   /**
