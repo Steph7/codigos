@@ -6,12 +6,53 @@ FilaPrioridade::FilaPrioridade(){
 }
 
 void FilaPrioridade::inserir(int prioridade, int dado){
-    this->cabeca = new No(prioridade, dado);
-    this->cauda = cabeca;  //só tem um elemento
+    No* novo_no = new No(prioridade, dado);
+
+    // Se só tem 1 elemento
+    if(estaVazio()){
+        novo_no->setProximo(cabeca);
+        cabeca = novo_no;
+    }
+    
+    // Se tem apenas 2 elementos
+    else if(novo_no->getPrioridade() < cabeca->getPrioridade()){
+        novo_no->setProximo(cabeca);
+        cabeca = novo_no;
+    }
+    
+    else{
+        cabeca->setProximo(novo_no);
+    }
+    
 }
 
+/*
+void FilaPrioridade::inserir(int prioridade, int dado){
+    No* novo_no = new No(prioridade, dado);
+
+    novo_no->setProximo(cabeca);
+    cabeca = novo_no; 
+
+    for(No* novo_no = cabeca; novo_no->getProximo() != NULL; novo_no = novo_no->getProximo()){
+        No* menor = novo_no;
+        for(No* j = novo_no->getProximo(); j != NULL; j = j->getProximo()){
+            if(j->getPrioridade() <= menor->getPrioridade()){
+                menor = j;
+            }
+        }
+        No* aux = novo_no;
+        novo_no = menor;
+        menor = aux;
+    }
+}
+*/
+
+
 int FilaPrioridade::remover(){
-    cabeca = cabeca->getPrioridade();
+    No* temp = cabeca;
+    cabeca = cabeca->getProximo();
+
+    return temp->getDado();
 }
 
 bool FilaPrioridade::estaVazio(){
@@ -29,23 +70,41 @@ unsigned FilaPrioridade::getTamanho(){
         c = c->getProximo();
         tam++;
     }while(c);
-    return tamanho = tam;
+    this->tamanho = tam;
+    return tamanho;
 }
 
 int FilaPrioridade::getMeio(){
-    return No[n];
+    No* c = cabeca;
+    int i = 0;
+    // Se só tiver 1 elemento
+    if(c->getProximo() == NULL){
+        return c->getDado();
+    }
+    // Se tiver apenas 2 elementos
+    else if(c->getProximo()->getProximo() == NULL){
+        c = c->getProximo();
+        return c->getDado();
+    }
+    // Se tiver mais de 2 elementos
+    else{
+        int meio = (tamanho/2) - 1;
+        while(i <= meio){
+            c = c->getProximo();
+            i++;
+        }
+        return c->getDado();
+    }
 }
 
 int FilaPrioridade::getUltimo(){
-    No* c = cauda;
-    while(c){
-        if(c->getProximo() == NULL){
-            cout << c->getDado() << ' ';
-            c = c->getProximo();
-        }
+    No* c = cabeca;
+    while(c->getProximo() != NULL){
+        c = c->getProximo();
     }
-    return false;
+    return c->getDado();
 }
+
 
 void FilaPrioridade::furaFila(int dado){
     No* novo_no = new No(1, dado);
@@ -55,14 +114,13 @@ void FilaPrioridade::furaFila(int dado){
 }
 
 void FilaPrioridade::print(){
-    cout << "Imprimindo todos os elementos: \n";
     No* c = cabeca;
     if(estaVazio()){
         cout << "A lista não possui elementos \n";
     }
     else{
         while(c){
-            cout << c->getDado() << endl;
+            cout << c->getDado() << ' ';
             c = c->getProximo();
         }
         cout << endl;

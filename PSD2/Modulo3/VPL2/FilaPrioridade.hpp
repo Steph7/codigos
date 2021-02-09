@@ -11,6 +11,7 @@ class FilaPrioridade {
   private:
     No* cabeca; // primerio elemento
     No* cauda; // último elemento
+    int tamanho;
 
   public:
     FilaPrioridade();
@@ -48,9 +49,7 @@ class FilaPrioridade {
      */
     void furaFila(int dado);
     void print();
-  private:
-    No *cabeca; /// Ponteiro para o primeiro elemento da lista (as vezes chamado de cabeça) 
-	int tamanho;
+  
 };
 
 #endif

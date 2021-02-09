@@ -46,9 +46,10 @@ int Partida::getNumAtualJogadores(){
 
 void Partida::setJogadores(Jogador* jogadores){
     /*Definir os jogadores. */
-    int i = getNumJogadores;
-    this->_jogadores = new Jogador[i];
-
+    int i = 0;
+    while(i <= getNumJogadores){
+        this->_jogadores = new Jogador[i];
+    }
 }
 
 
