@@ -51,5 +51,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "terminal.integrated.shell.windows": "cmd.exe"
+    "terminal.integrated.shell.windows": "cmd.exe",
+    "jupyter.jupyterServerType": "local"
 }
