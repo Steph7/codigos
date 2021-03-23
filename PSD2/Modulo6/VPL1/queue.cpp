@@ -1,4 +1,8 @@
 #include "queue.h"
+#include "iostream"
+#include "vector"
+
+using namespace std;
 
 struct Node {
   int key;
@@ -7,10 +11,13 @@ struct Node {
 
 Queue::Queue() {
   // TODO
+  vector<Node> Fila;
 }
 
 void Queue::push(int k) {
   // TODO
+  Node* no = new Node;
+  no->key = k;
 }
 
 void Queue::pop() {
