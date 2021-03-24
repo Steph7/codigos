@@ -43,7 +43,8 @@ class GameOfLife {
   // ou #false caso contrário.
   bool lives(int i, int j) const;
 
-  vector<vector<bool>> torus_;   
+  vector<vector<bool>> torus_;
+  
 };
 
 #endif  // GAME_OF_LIFE_H_

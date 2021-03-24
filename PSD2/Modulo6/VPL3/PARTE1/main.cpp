@@ -45,11 +45,19 @@ int main() {
   cin >> iterations;
   int line, column;
   cin >> line >> column;
+   
   GameOfLife g(line, column);
   while (cin >> line) {
     cin >> column;
-    g.Enliven(line, column);
+    try{
+      g.Enliven(line, column);
+    }
+    catch (GameOfLife::InvalidCellException e) {
+      cerr << "As coordenadas [" << e.line << ", " << e.column << "] não são de uma célula válida" << endl;
+      return 1;
+    }
   }
+
   Print(g);
     
   // Executa o número esperado de iterações.
@@ -59,4 +67,4 @@ int main() {
     std::this_thread::sleep_for(10ms);
     iterations--;
   }
-}
+}  
