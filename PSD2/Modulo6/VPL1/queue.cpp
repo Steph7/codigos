@@ -1,6 +1,5 @@
 #include "queue.h"
 #include "iostream"
-#include "vector"
 
 using namespace std;
 
@@ -10,28 +9,77 @@ struct Node {
 };
 
 Queue::Queue() {
-  // TODO
-  vector<Node> Fila;
+  this->front_ = NULL;
+  this->back_ = NULL;
 }
 
 void Queue::push(int k) {
-  // TODO
-  Node* no = new Node;
-  no->key = k;
+  Node* novo_no = new Node;
+  novo_no->key = k;
+  novo_no->next = NULL;
+
+  if(front_ == NULL){
+    front_ = novo_no;
+    back_ = novo_no;    
+  }
+  else{
+    back_->next = novo_no;
+    back_ = novo_no;
+  }
 }
 
 void Queue::pop() {
-  // TODO
+  Node* temp = front_;
+  if(front_ == NULL) throw EmptyException();
+  front_ = front_->next;
+
+  //return temp->key;
 }
 
 int Queue::front() const {
-  return 0; // TODO
+  if(front_ == NULL) throw EmptyException();
+  return front_->key;
+  //return 0;
 }
 
 int Queue::back() const {
-  return 0; // TODO
+  Node* cabeca = front_;
+  if(front_ == NULL) throw EmptyException();
+  if(cabeca->next == NULL){
+    return cabeca->key;
+  }
+  else{
+    while(cabeca->next != NULL){
+      cabeca = cabeca->next;
+    }
+    return cabeca->key;
+  //return 0;
+  }
+  
 }
 
 int Queue::count() const {
-  return 0; // TODO
+  Node* cabeca = front_;
+  int contador = 0;
+  if(front_ == NULL){
+    return contador = 0;
+  }
+  else if(front_ == back_){
+    return contador = 1;
+  }
+  else{
+    contador = 1;
+    while(cabeca->next != NULL){
+      cabeca = cabeca->next;
+      contador++;
+    }
+    return contador;
+  }
+  
+  
+  //return 0;
+}
+
+bool Queue::estaVazio() {
+  return (front_ == NULL);
 }

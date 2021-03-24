@@ -31,9 +31,14 @@ class Queue {
     
     // Retorna o número de elementos na fila.
     int count() const;
+
+    //verifica se a fila está vazia.
+    bool estaVazio();
+
   private:
     Node* front_;    
     Node* back_;
+
 };
 
 #endif  // QUEUE_H
