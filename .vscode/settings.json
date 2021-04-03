@@ -52,5 +52,6 @@
         "typeinfo": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe",
-    "jupyter.jupyterServerType": "local"
+    "jupyter.jupyterServerType": "local",
+    "python.pythonPath": "C:\\Users\\Stephanie\\anaconda3\\python.exe"
 }
